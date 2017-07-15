@@ -1,0 +1,9 @@
+- name: Install rpm2cpio
+  apt:
+    state: present
+    name: rpm2cpio
+
+- name: Install megaraid cli
+  shell:
+    cmd: "cd / ; rpm2cpio {{ installer_package.dest }} | cpio -idmv"
+    creates: /opt/MegaRAID/MegaCli/MegaCli

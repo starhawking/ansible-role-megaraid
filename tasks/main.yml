@@ -1,0 +1,10 @@
+- name: Upload megaraid cli
+  copy:
+    src: files/8-07-14_MegaCLI/Linux/MegaCli-8.07.14-1.noarch.rpm
+    dest: /tmp/
+  register: installer_package
+
+- include: install-ubuntu.yml
+  when: ansible_os_family == "Debian"
+    
+    
